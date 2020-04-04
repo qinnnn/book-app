@@ -258,7 +258,7 @@
 		top: 0;
 		bottom: 0;
 		width: 0;
-		background-color: #007AFF;
+		background-color: var(--co-color);
 	}
 
 	.scroll-view-animation {
@@ -296,7 +296,7 @@
 	}
 
 	.uni-tab-item-title-active {
-		color: #007AFF;
+		color: var(--co-color);
 	}
 
 	.swiper-item {
