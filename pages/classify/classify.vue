@@ -18,7 +18,15 @@
 		<swiper class="tab-box" ref="swiper1" :current="tabIndex" :duration="300" @change="onswiperchange" @transition="onswiperscroll"
 		 @animationfinish="animationfinish">
 			<swiper-item class="swiper-item" v-for="(page, index) in tabList" :key="index">
-				adasdawdawd
+				<view class="item-datas">
+					<view @click="openClassBook(item.id)" class="item-data" v-for="(item,key) in page.dataList" :key="key">
+						<view>
+							<span style="font-size: 32rpx;">{{item.name}}</span>
+							<span style="margin-top:16rpx;color:#969696;">{{item.num}}本</span>
+						</view>
+						<image :src="item.imgUrl" mode="aspectFill"></image>
+					</view>
+				</view>
 			</swiper-item>
 		</swiper>
 	</view>
@@ -42,7 +50,27 @@
 				tabList: [{
 					id: "tab01",
 					name: '男频',
-					dataList: [],
+					dataList: [{
+						id: 1,
+						name: "修仙",
+						num: 466,
+						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
+					},{
+						id: 1,
+						name: "修仙",
+						num: 46456,
+						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
+					},{
+						id: 1,
+						name: "修仙",
+						num: 34856,
+						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
+					},{
+						id: 1,
+						name: "修仙",
+						num: 16965,
+						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
+					}],
 				}, {
 					id: "tab02",
 					name: '女频',
@@ -204,6 +232,11 @@
 					offset: -offset
 				});
 			},
+			openClassBook(id){
+				uni.navigateTo({
+					url: `/pages/classbook/classbook`
+				})
+			},
 		}
 	}
 </script>
@@ -221,6 +254,7 @@
 	.tabs {
 		flex: 1;
 		flex-direction: column;
+		display: flex;
 		overflow: hidden;
 		background-color: #ffffff;
 		/* #ifdef MP-ALIPAY || MP-BAIDU */
@@ -229,8 +263,9 @@
 	}
 
 	.tab-bar {
-		width: 750upx;
-		height: 84upx;
+		width: 750rpx;
+		height: 84rpx;
+		min-height: 84rpx;
 		flex-direction: row;
 		/* #ifndef APP-PLUS */
 		white-space: nowrap;
@@ -267,7 +302,8 @@
 	}
 
 	.tab-bar-line {
-		height: 1upx;
+		height: 1rpx;
+		min-height: 1rpx;
 		background-color: #cccccc;
 	}
 
@@ -280,15 +316,15 @@
 		display: inline-block;
 		/* #endif */
 		flex-wrap: nowrap;
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 40rpx;
+		padding-right: 40rpx;
 	}
 
 	.uni-tab-item-title {
 		color: #555;
-		font-size: 30upx;
-		height: 80upx;
-		line-height: 80upx;
+		font-size: 30rpx;
+		height: 80rpx;
+		line-height: 80rpx;
 		flex-wrap: nowrap;
 		/* #ifndef APP-PLUS */
 		white-space: nowrap;
@@ -301,7 +337,42 @@
 
 	.swiper-item {
 		flex: 1;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	.item-datas{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		position: relative;
+		align-content: flex-start;
+		justify-content: space-around;
+	}
+	.item-data{
+		width: 34%;
+		display: flex;
+		padding-left: 20rpx;
+		padding-top: 20rpx;
+		padding-right: 20rpx;
+		justify-content: space-between;
+		margin-top: 20rpx;
+		background-color: #f9f9f9;
+		border-radius: 6rpx;
+	}
+	.item-data view{
+		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
+	.item-data image{
+		height: 140rpx;
+		width: 40%;
+		min-width: 40%;
 	}
 
 </style>

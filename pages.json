@@ -36,6 +36,15 @@
 			}
 		},
 		{
+			"path": "pages/classbook/classbook",
+			"style": {
+				"navigationBarTitleText": "分类查询",
+				"app-plus":{
+					"animationType": "pop-in"
+				}
+			}
+		},
+		{
 			"path": "pages/comment/comment",
 			"style": {
 				"navigationBarTitleText": "评论",
