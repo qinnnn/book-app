@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "书架",
+  "enablePullDownRefresh": true,
+  "titleNView": false,
+  "animationType": "pop-in",
+  "bounce": "none",
+  "pullToRefresh": {
+    "style": "circle",
+    "offset": "40px"
+  },
+  "usingComponents": {}
+}

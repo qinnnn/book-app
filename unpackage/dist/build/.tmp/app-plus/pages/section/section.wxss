@@ -1,0 +1,12 @@
+
+.l-body {
+	padding: 32rpx;
+	font-size: 30rpx;
+	color: #D1D1D6;
+	line-height: 50rpx;
+}
+._h3 {
+	font-size: 50rpx;
+	margin-bottom: 20rpx;
+}
+

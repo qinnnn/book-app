@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"l-body { padding: ",[0,32],"; font-size: ",[0,30],"; color: #D1D1D6; line-height: ",[0,50],"; }\n.",[1],"_h3 { font-size: ",[0,50],"; margin-bottom: ",[0,20],"; }\n",],undefined,{path:"./pages/section/section.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/section/section.wxml') } }));
