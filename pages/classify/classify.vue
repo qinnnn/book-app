@@ -14,17 +14,19 @@
 				</view>
 			</view>
 		</scroll-view>
-		<view class="tab-bar-line"></view>
+		<!-- <view class="tab-bar-line"></view> -->
 		<swiper class="tab-box" ref="swiper1" :current="tabIndex" :duration="300" @change="onswiperchange" @transition="onswiperscroll"
 		 @animationfinish="animationfinish">
 			<swiper-item class="swiper-item" v-for="(page, index) in tabList" :key="index">
 				<view class="item-datas">
-					<view @click="openClassBook(item.id)" class="item-data" v-for="(item,key) in page.dataList" :key="key">
-						<view>
-							<span style="font-size: 32rpx;">{{item.name}}</span>
-							<span style="margin-top:16rpx;color:#969696;">{{item.num}}本</span>
+					<view style="width: 50%;display: flex;justify-content: center;" v-for="(item,key) in page.dataList" :key="key">
+						<view @click="openClassBook(item.id)" class="item-data">
+							<view>
+								<span style="font-size: 32rpx;">{{item.name}}</span>
+								<span style="margin-top:16rpx;color:#969696;">{{item.num}}本</span>
+							</view>
+							<image :src="item.imgUrl" mode="aspectFill"></image>
 						</view>
-						<image :src="item.imgUrl" mode="aspectFill"></image>
 					</view>
 				</view>
 			</swiper-item>
@@ -58,12 +60,22 @@
 					},{
 						id: 1,
 						name: "修仙",
-						num: 46456,
+						num: 16965,
 						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
 					},{
 						id: 1,
 						name: "修仙",
-						num: 34856,
+						num: 16965,
+						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
+					},{
+						id: 1,
+						name: "修仙",
+						num: 16965,
+						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
+					},{
+						id: 1,
+						name: "修仙",
+						num: 16965,
 						imgUrl: "/static/152b74dd6eb4c583fd8921a3f634b5dc.jpg"
 					},{
 						id: 1,
@@ -270,6 +282,7 @@
 		/* #ifndef APP-PLUS */
 		white-space: nowrap;
 		/* #endif */
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
 	}
 
 	/* #ifndef APP-NVUE */
@@ -349,14 +362,15 @@
 		flex-wrap: wrap;
 		position: relative;
 		align-content: flex-start;
-		justify-content: space-around;
+		overflow-x: hidden;
 	}
 	.item-data{
-		width: 34%;
+		width: 65%;
 		display: flex;
 		padding-left: 20rpx;
-		padding-top: 20rpx;
+		padding-top: 15rpx;
 		padding-right: 20rpx;
+		padding-bottom: 15rpx;
 		justify-content: space-between;
 		margin-top: 20rpx;
 		background-color: #f9f9f9;

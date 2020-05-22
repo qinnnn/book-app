@@ -181,7 +181,7 @@
 				max: 0,
 				loadMoreText: "加载中...",
 				triggered: false,
-				_freshing: false,
+				freshing: false,
 			}
 		},
 		onLoad() {
@@ -195,7 +195,7 @@
 			this.dataList = [];
 			this.loadMoreText = "加载更多";
 			this.showLoadMore = false;
-			this._freshing = false;
+			this.freshing = false;
 		},
 		methods: {
 			initData() {
@@ -216,7 +216,7 @@
 			change(e) {
 				this.current = e.detail.current
 			},
-			navtoClssify(){
+			navtoClssify() {
 				uni.navigateTo({
 					url: `/pages/classify/classify`
 				})
@@ -242,13 +242,13 @@
 				}, 300);
 			},
 			onRefresh() {
-				if (this._freshing) return;
+				if (this.freshing) return;
 				console.log("onRefresh");
-				this._freshing = true;
+				this.freshing = true;
 				this.triggered = true
 				setTimeout(() => {
 					this.triggered = false;
-					this._freshing = false;
+					this.freshing = false;
 				}, 3000)
 			},
 			onRestore() {
@@ -438,13 +438,13 @@
 	}
 
 	.fint-tan {
-		width: 100rpx;
 		height: 40rpx;
 		font-size: var(--f-size-1);
 		color: #899da3;
 		background-color: #e8e8e8;
 		padding: 6rpx 14rpx;
 		border-radius: 6rpx;
+		display: inline-block;
 	}
 
 	.fint-tag {
@@ -459,13 +459,15 @@
 		color: #899da3;
 		font-size: var(--f-size-1);
 		align-items: center;
+		line-height: 40rpx;
 	}
 
 	.fint-tag-icon {
 		width: 40rpx;
 		height: 40rpx;
 	}
-	.find-loadmore{
+
+	.find-loadmore {
 		background-color: #f9f8eb;
 		line-height: 50rpx;
 		text-align: center;
